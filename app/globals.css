@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
-
     --background: 0 0% 100%;
 
     --foreground: 224 71.4% 4.1%;
@@ -55,10 +52,9 @@
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
-
     --background: 224 71.4% 4.1%;
 
     --foreground: 210 20% 98%;
@@ -105,11 +101,9 @@
 
     --chart-4: 280 65% 60%;
 
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {
@@ -118,4 +112,28 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .gradient {
+    @apply bg-gradient-to-br from-blue-600 to-purple-600;
+  }
+
+  .gradient-title {
+    @apply gradient font-extrabold tracking-tighter pr-2 pb-2 text-transparent bg-clip-text;
+  }
+}
+
+.hero-image-wrapper {
+  perspective: 500px;
+}
+
+.hero-image {
+  transform: rotateX(15deg) scale(1);
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+
+.hero-image.scrolled {
+  transform: rotateX(0deg) scale(1) translateY(40px);
 }
